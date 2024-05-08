@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>¡Hola Isabel!</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        background-color: #ffc0cb; /* Color rosa */
+    }
+    #mensaje {
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+    .boton-lindo {
+        padding: 10px 20px;
+        font-size: 16px;
+        background-color: #ff6347; /* Color rojo coral */
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+    .boton-lindo:hover {
+        transform: scale(1.2);
+    }
+</style>
+</head>
+<body>
+    <div id="mensaje">Hola Isabel, La pelota está en tu cancha</div>
+    <button class="boton-lindo" onclick="aumentarBoton(this)">Hoy estás muy linda</button>
+    
+    <script>
+        function aumentarBoton(boton) {
+            boton.style.fontSize = parseInt(window.getComputedStyle(boton).fontSize) + 2 + "px";
+            // Creamos una explosión de corazones al hacer clic en el botón
+            var explosion = document.createElement("div");
+            explosion.innerHTML = "&#10084;&#65039;";
+            explosion.style.position = "absolute";
+            explosion.style.left = (boton.offsetLeft + boton.offsetWidth / 2) + "px";
+            explosion.style.top = (boton.offsetTop + boton.offsetHeight / 2) + "px";
+            explosion.style.fontSize = "20px";
+            explosion.style.animation = "disappear 1s forwards";
+            document.body.appendChild(explosion);
+            // Remover el elemento después de la animación
+            setTimeout(function() {
+                explosion.remove();
+            }, 1000);
+        }
+    </script>
+</body>
+</html>
